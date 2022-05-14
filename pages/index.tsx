@@ -41,17 +41,9 @@ const Home: NextPage = () => {
             <>
             <Box sx={{
               border: (theme) => `1px solid ${theme.palette.divider}`,
-              borderRadius: 1,
-              bgcolor: 'background.paper',
-              color: 'text.secondary',
-              p: 1,
+              borderRadius: 1, bgcolor: 'background.paper', color: 'text.secondary', p: 1,
               }}>
-              <Box sx={{
-                display: 'flex',
-                alignItems: 'center',
-                width: 'fit-content',  
-                gap: 0.5,              
-              }}>
+              <Box sx={{ display: 'flex', alignItems: 'center', width: 'fit-content', gap: 0.5 }}>
                 <IconButton aria-label="太字" onClick={_onBoldClick.bind(this)} size='small'><FormatBoldIcon /></IconButton>
                 <IconButton aria-label="斜体" onClick={_onItalicClick.bind(this)} size='small'><FormatItalicIcon /></IconButton>
                 <IconButton aria-label="下線" onClick={_onUnderlineClick.bind(this)} size='small'><FormatUnderlinedIcon /></IconButton>
