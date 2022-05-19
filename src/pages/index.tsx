@@ -235,6 +235,9 @@ const Home: NextPage = () => {
         <Container maxWidth="xl" component={'main'}>
           {isLoaded && (
             <>
+            <Typography variant="h5">
+              Draft.js
+            </Typography>
             <Grid container spacing={2}>
               <Grid item xs={12} sm={6}>
                 <Typography variant="subtitle1">
