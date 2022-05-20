@@ -13,21 +13,17 @@ import FormatListNumberedIcon from '@mui/icons-material/FormatListNumbered';
 import LinkIcon from '@mui/icons-material/Link';
 import { StyledToggleButtonGroup } from '../StyledToggleButtonGroup/StyledToggleButtonGroup';
 
-export const DraftJsEditor = () => {
-    // ページ読み込みが完了したか
-  const [isLoaded, setIsLoaded] = useState<boolean>(false)
-  
-  // WYSIWYGエディタの装飾
-  const Link = ({ entityKey, contentState, children }: any) => {
+// WYSIWYGエディタの装飾
+const Link = ({ entityKey, contentState, children }: any) => {
     let { url } = contentState.getEntity(entityKey).getData();
     return (
         <a style={{ color: "blue", fontStyle: "italic" }}
-           href={url} target="_blank" rel="noreferrer">
-          {children}
+            href={url} target="_blank" rel="noreferrer">
+            {children}
         </a>
     );
-  };
-  const linkStrategy = (contentBlock: ContentBlock, callback: (start: number, end: number) => void, contentState: ContentState) => {
+};
+const linkStrategy = (contentBlock: ContentBlock, callback: (start: number, end: number) => void, contentState: ContentState) => {
     contentBlock.findEntityRanges((character) => {
         const entityKey = character.getEntity();
         return (
@@ -35,13 +31,17 @@ export const DraftJsEditor = () => {
             contentState.getEntity(entityKey).getType() === "LINK"
         );
     }, callback);
-  };
-  const decorator = new CompositeDecorator([
+};
+const decorator = new CompositeDecorator([
     {
-      strategy: linkStrategy,
-      component: Link,
+        strategy: linkStrategy,
+        component: Link,
     },
-  ]);
+]);
+
+export const DraftJsEditor = () => {
+  // ページ読み込みが完了したか
+  const [isLoaded, setIsLoaded] = useState<boolean>(false)
 
   // リンクダイアログ
   const [isOpenLinkDialog, setIsOpenLinkDialog] = useState<boolean>(false);
@@ -245,7 +245,7 @@ export const DraftJsEditor = () => {
             </Grid>
             <Grid item xs={12} sm={6}>
             <Typography variant="subtitle1">
-                HTMLエディタ
+                HTML
             </Typography>
             <Box>
             <TextField

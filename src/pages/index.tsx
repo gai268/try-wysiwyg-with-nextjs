@@ -3,6 +3,7 @@ import type { NextPage } from 'next'
 import Head from 'next/head'
 import { useEffect, useState } from 'react'
 import { DraftJsEditor } from '../components/draftJs/DraftJsEditor/DraftJsEditor'
+import { ReactQuillEditor } from '../components/reactQuill/ReactQuillEditor/ReactQuillEditor'
 
 const Home: NextPage = () => {
   // ページ読み込みが完了したか
@@ -23,7 +24,12 @@ const Home: NextPage = () => {
       </Head>
       <Box sx={{display: isLoaded ? undefined: "none"}}>
         <Container maxWidth="xl" component={'main'}>
-          <DraftJsEditor></DraftJsEditor>
+          <Box component={'section'} sx={{my: 2}}>
+            <DraftJsEditor></DraftJsEditor>
+          </Box>
+          <Box component={'section'} sx={{my: 2}}>
+            <ReactQuillEditor></ReactQuillEditor>
+          </Box>
         </Container>
       </Box>
     </>
